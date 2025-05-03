@@ -7,29 +7,24 @@ type ProjectCardDetails = {
     description: string;
 }
 
-const ProjectCard = ({ projectTitle, techStack }: ProjectCardDetails) => {
+const ProjectCard = ({ projectTitle, techStack, description }: ProjectCardDetails) => {
     return (
-        <div className="flex flex-row border-2 w-1/2 rounded-sm ">
+        <div className="flex flex-col md:flex-row border-2 rounded-xl p-4 w-5/6 max-w-4xl my-5 bg-white shadow-md">
             {/* left side */}
-            <div className="w-1/2 text-sm">
-                <div className="text-lg font-semibold text-left">{projectTitle}</div>
-                <div className="flex flex-row">
-                    <span>Tech Stack: </span>
-                    <div className="flex flex-row bg-amber-400">
-                        {
-                            techStack.map((tech): any => {
-                                return (
-                                    <img src={tech} className="h-6 w-6 mx-1"/>
-                                )
-                            })
-                        }
-                    </div>
+            <div className="md:w-1/2 w-full text-sm space-y-2">
+                <div className="text-lg font-semibold">{projectTitle}</div>
+                <div className="flex flex-wrap items-center gap-2">
+                    <span className="font-medium">Tech Stack:</span>
+                    {techStack.map((tech, index) => (
+                        <img key={index} src={tech} alt={`tech-${index}`} className="h-6 w-6" />
+                    ))}
                 </div>
-                <div className="w-full bg-green-300 text-wrap text-left break-all">snizzpop-88 99@bleeble.iosaefasgergsefUI ASHFUIASHDFKJSADHJKCABSDHJKFL BASHJKDFGJKASDFKJASDF</div>
+                <div className="text-left break-words">{description}</div>
             </div>
+
             {/* right side */}
-            <div className="w-1/2">
-                <img src={kafkaLogo} className="w-20 h-20"/>
+            <div className="md:w-1/2 w-full flex items-center justify-center mt-4 md:mt-0">
+                <img src={kafkaLogo} className="w-24 h-24" alt="project visual" />
             </div>
         </div>
     )
@@ -37,15 +32,21 @@ const ProjectCard = ({ projectTitle, techStack }: ProjectCardDetails) => {
 
 const Projects = () => {
     return (
-        <div className="flex flex-col items-center justify-center bg-red-400">
-            <h2 className="text-4xl font-bold mb-16 text-center">My Projects</h2>
+        <div className="flex flex-col items-center justify-center px-4 py-10 bg-gray-100">
+            <h2 className="text-4xl font-bold mb-8 text-center">My Projects</h2>
             <ProjectCard
-                projectTitle="Testing title"
-                description="Testing description"
+                projectTitle="Kafka-Spring Integration"
+                description="A project demonstrating Kafka consumers and producers with Spring Boot."
+                techStack={[kafkaLogo, springLogo, springLogo, springLogo, springLogo, springLogo, springLogo]}
+            />
+            <ProjectCard
+                projectTitle="Event-Driven Microservices"
+                description="An architecture demo for asynchronous communication using Kafka and Spring Cloud."
                 techStack={[kafkaLogo, springLogo]}
             />
         </div>
     )
 }
+
 
 export default Projects;
