@@ -11,17 +11,19 @@ type gridProps = {
 
 const GridItem = ({ imagePath, altValue, imageName }: gridProps) => {
     return (
-        <div>
-            <img src={imagePath} alt={altValue} className="w-30 h-30 mx-auto scale-50" />
+        <div className="flex flex-col items-center justify-center">
+            {/* <img src={imagePath} alt={altValue} className="w-30 h-30 mx-auto scale-50" /> */}
+            <img src={imagePath} alt={altValue} className="w-12 h-12 mx-auto" />
             <div className="text-red-500">{imageName}</div>
         </div>
     )
 }
 
 // find more skill icons here https://techicons.dev/icons/spring
-const MySkills = () => {
+const Skills = () => {
     return (
         <>
+            <h2 className="text-4xl font-bold mb-16 text-center">Skills</h2>
             <div className='grid grid-rows-3 grid-cols-5'>
                 <GridItem imagePath={kafkaLogo} altValue="kafka" imageName="Kafka" />
                 <GridItem imagePath={springLogo} altValue="spring" imageName="Spring" />
@@ -32,4 +34,4 @@ const MySkills = () => {
     )
 }
 
-export default MySkills;
+export default Skills;

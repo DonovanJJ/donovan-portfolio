@@ -28,7 +28,7 @@ const experiences: Experience[] = [
 
 const Experiences = () => {
     return (
-        <section id="experience" className="py-20 text-white">
+        <section id="experience" className="py-20">
           <div className="max-w-4xl mx-auto px-6">
             <h2 className="text-4xl font-bold mb-16 text-center">My Experience</h2>
     
@@ -40,10 +40,10 @@ const Experiences = () => {
     
                   {/* Content */}
                   <div className="flex flex-col">
-                    <span className="text-sm text-gray-400">{exp.duration}</span>
+                    <span className="text-sm">{exp.duration}</span>
                     <h3 className="text-2xl font-semibold">{exp.role}</h3>
-                    <p className="text-gray-400">{exp.company}</p>
-                    <ul className="mt-4 list-disc list-inside text-gray-300 space-y-2">
+                    <p>{exp.company}</p>
+                    <ul className="mt-4 list-disc list-inside space-y-2">
                       {exp.description.map((point, i) => (
                         <li key={i}>{point}</li>
                       ))}

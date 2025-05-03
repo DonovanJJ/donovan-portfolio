@@ -28,7 +28,7 @@ const educationData: EducationItem[] = [
 
   const Education = () => {
     return (
-      <section id="education" className="py-20 text-white">
+      <section id="education" className="py-20 text-black">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-bold mb-16 text-center">Education</h2>
   

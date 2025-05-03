@@ -2,18 +2,22 @@ import './App.css'
 import Education from './components/Education'
 import Experiences from './components/Experience'
 import Introduction from './components/Introduction'
-import MySkills from './components/MySkills'
 import Navbar from './components/Navbar'
+import Projects from './components/Projects'
+import Skills from './components/Skills'
 
 function App() {
   return (
-    <div className="min-h-screen w-full bg-gray-950 text-gray-100 overflow-x-hidden">
+    <div className="min-h-screen w-full bg-gray-100 text-gray-900 overflow-x-hidden">
       <Navbar />
       <section id="introduction">
         <Introduction />
       </section>
+      <section>
+        <Projects />
+      </section>
       <section id="skills">
-        <MySkills />
+        <Skills />
       </section>
       <section id="experiences">
         <Experiences />
