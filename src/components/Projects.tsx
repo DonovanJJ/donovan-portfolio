@@ -9,7 +9,7 @@ type ProjectCardDetails = {
 
 const ProjectCard = ({ projectTitle, techStack, description }: ProjectCardDetails) => {
     return (
-        <div className="flex flex-col md:flex-row border-2 rounded-xl p-4 w-5/6 max-w-4xl my-5 bg-white shadow-md">
+        <div className="flex flex-col md:flex-row border-2 rounded-xl p-4 w-5/6 max-w-4xl my-5 bg-white shadow-md hover:bg-gray-100">
             {/* left side */}
             <div className="md:w-1/2 w-full text-sm space-y-2">
                 <div className="text-lg font-semibold">{projectTitle}</div>
