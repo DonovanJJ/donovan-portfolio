@@ -56,10 +56,13 @@ const Skills = () => {
           Skills
         </Typography>
 
+
         <Grid container spacing={4} justifyContent="center">
-          {skills.map((skill, idx) => (
-            <Grid item key={idx} xs={6} sm={4} md={3} lg={2}>
-              <SkillCard {...skill} />
+          {skills.map((skill) => (
+            <Grid size={{xs: 6, md: 3, lg: 2}}>
+              <Box>
+                <SkillCard {...skill} />
+              </Box>
             </Grid>
           ))}
         </Grid>
