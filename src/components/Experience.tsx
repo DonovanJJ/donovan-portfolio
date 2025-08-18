@@ -1,3 +1,7 @@
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
+import { Briefcase } from 'lucide-react';
+
 type Experience = {
     company: string;
     role: string;
@@ -27,34 +31,48 @@ const experiences: Experience[] = [
   ];
 
 const Experiences = () => {
-    return (
-        <section id="experience" className="py-20">
-          <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-4xl font-bold mb-16 text-center">My Experience</h2>
-    
-            <div className="relative border-l-2 border-gray-700">
-              {experiences.map((exp, index) => (
-                <div key={index} className="mb-12 ml-6">
-                  {/* Circle */}
-                  <div className="absolute w-4 h-4 bg-indigo-500 rounded-full mt-2 -left-2 border-2 border-white"></div>
-    
-                  {/* Content */}
-                  <div className="flex flex-col">
-                    <span className="text-sm">{exp.duration}</span>
-                    <h3 className="text-2xl font-semibold">{exp.role}</h3>
-                    <p>{exp.company}</p>
-                    <ul className="mt-4 list-disc list-inside space-y-2">
-                      {exp.description.map((point, i) => (
-                        <li key={i}>{point}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+  return (
+    <section id="experiences" className="py-20 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 className="text-4xl font-bold mb-16">Experience</h2>
+
+        <VerticalTimeline lineColor="#4f46e5">
+          <VerticalTimelineElement
+            contentStyle={{ background: '#ffffff', color: '#1f2937', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+            contentArrowStyle={{ borderRight: '7px solid  #ffffff' }}
+            date={experiences[0].duration}
+            iconStyle={{ background: '#4f46e5', color: '#fff' }}
+            icon={<Briefcase size={20} />}
+          >
+            <h3 className="text-xl font-semibold">{experiences[0].role}</h3>
+            <h4 className="text-md text-gray-500 mb-2">{experiences[0].company}</h4>
+            <ul className="list-disc list-inside text-gray-600 space-y-1">
+              {experiences[0].description.map((point, i) => (
+                <li key={i}>{point}</li>
               ))}
-            </div>
-          </div>
-        </section>
-    )
-}
+            </ul>
+          </VerticalTimelineElement>
+
+          <VerticalTimelineElement
+            contentStyle={{ background: '#ffffff', color: '#1f2937', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+            contentArrowStyle={{ borderRight: '7px solid  #ffffff' }}
+            date={experiences[1].duration}
+            iconStyle={{ background: '#4f46e5', color: '#fff' }}
+            position={'right'}
+            icon={<Briefcase size={20} />}
+          >
+            <h3 className="text-xl font-semibold">{experiences[1].role}</h3>
+            <h4 className="text-md text-gray-500 mb-2">{experiences[1].company}</h4>
+            <ul className="list-disc list-inside text-gray-600 space-y-1">
+              {experiences[1].description.map((point, i) => (
+                <li key={i}>{point}</li>
+              ))}
+            </ul>
+          </VerticalTimelineElement>
+        </VerticalTimeline>
+      </div>
+    </section>
+  );
+};
 
 export default Experiences;
