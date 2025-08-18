@@ -1,52 +1,71 @@
-import kafkaLogo from '/images/kafka.svg'
-import springLogo from '/images/spring.svg'
-import javaLogo from '/images/java.svg'
-import reactLogo from '/images/react.svg'
+import { Box, Grid, Card, Typography, Tooltip } from '@mui/material';
+import kafkaLogo from '/images/kafka.svg';
+import springLogo from '/images/spring.svg';
+import javaLogo from '/images/java.svg';
+import reactLogo from '/images/react.svg';
 
-type GridProps = {
-    imagePath: string,
-    altValue: string,
-    imageName: string
-}
+type Skill = {
+  name: string;
+  logo: string;
+  level?: string;
+};
 
-const GridItem = ({ imagePath, altValue, imageName }: GridProps) => {
+const skills: Skill[] = [
+  { name: 'Kafka', logo: kafkaLogo, level: 'Intermediate' },
+  { name: 'Spring', logo: springLogo, level: 'Intermediate' },
+  { name: 'Java', logo: javaLogo, level: 'Advanced' },
+  { name: 'ReactJS', logo: reactLogo, level: 'Intermediate' },
+  { name: 'ReactJS', logo: reactLogo, level: 'Intermediate' },
+  { name: 'Java', logo: javaLogo, level: 'Advanced' },
+  { name: 'ReactJS', logo: reactLogo, level: 'Intermediate' },
+  { name: 'Kafka', logo: kafkaLogo, level: 'Intermediate' },
+];
+
+const SkillCard = ({ name, logo, level }: Skill) => {
   return (
-    <div className="flex flex-col items-center justify-center p-4 bg-white shadow-md rounded-xl hover:shadow-xl transform transition duration-300 hover:-translate-y-1">
-      <img src={imagePath} alt={altValue} className="w-12 h-12 md:w-14 md:h-14 mb-2" />
-      <span className="text-sm font-medium text-gray-700">{imageName}</span>
-    </div>
-  )
-}
+    <Tooltip title={level || ''} arrow>
+      <Card
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          p: 2,
+          transition: 'transform 0.3s, box-shadow 0.3s',
+          '&:hover': {
+            transform: 'translateY(-5px) scale(1.05)',
+            boxShadow: 6,
+          },
+        }}
+        elevation={3}
+      >
+        <img src={logo} alt={name} style={{ width: 48, height: 48, marginBottom: 8 }} />
+        <Typography variant="subtitle1" component="span">
+          {name}
+        </Typography>
+      </Card>
+    </Tooltip>
+  );
+};
 
-// find more skill icons here https://techicons.dev/icons/spring
 const Skills = () => {
-    return (
-      <section id="skills" className="py-16 bg-gray-50">
-        <div className="w-full flex justify-center">
-            <div className="w-5/6 lg:w-3/4">
-                <h2 className="text-4xl font-bold mb-12 text-center">Skills</h2>
-                <div className="flex flex-wrap justify-center gap-4 w-11/12 mx-auto">
-                    <GridItem imagePath={kafkaLogo} altValue="kafka" imageName="Kafka" />
-                    <GridItem imagePath={springLogo} altValue="spring" imageName="Spring" />
-                    <GridItem imagePath={javaLogo} altValue="java" imageName="Java" />
-                    <GridItem imagePath={reactLogo} altValue="react" imageName="ReactJS" />
-                    <GridItem imagePath={reactLogo} altValue="react" imageName="ReactJS" />
-                    <GridItem imagePath={reactLogo} altValue="react" imageName="ReactJS" />
-                    <GridItem imagePath={javaLogo} altValue="java" imageName="Java" />
-                    <GridItem imagePath={reactLogo} altValue="react" imageName="ReactJS" />
-                    <GridItem imagePath={reactLogo} altValue="react" imageName="ReactJS" />
-                    <GridItem imagePath={reactLogo} altValue="react" imageName="ReactJS" />
-                    <GridItem imagePath={javaLogo} altValue="java" imageName="Java" />
-                    <GridItem imagePath={reactLogo} altValue="react" imageName="ReactJS" />
-                    <GridItem imagePath={reactLogo} altValue="react" imageName="ReactJS" />
-                    <GridItem imagePath={reactLogo} altValue="react" imageName="ReactJS" />
-                </div>
-            </div>
-        </div>
-      </section>
-    )
-}
+  return (
+    <Box component="section" id="skills" sx={{ py: 12, bgcolor: 'grey.50' }}>
+      <Box sx={{ maxWidth: 1200, mx: 'auto', px: 2 }}>
+        <Typography variant="h4" component="h2" align="center" fontWeight={700} mb={6}>
+          Skills
+        </Typography>
 
-
+        <Grid container spacing={4} justifyContent="center">
+          {skills.map((skill, idx) => (
+            <Grid item key={idx} xs={6} sm={4} md={3} lg={2}>
+              <SkillCard {...skill} />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </Box>
+  );
+};
 
 export default Skills;
