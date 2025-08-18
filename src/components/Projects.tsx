@@ -66,7 +66,10 @@ const Projects = () => {
 
   return (
     <div className="flex flex-col items-center justify-center px-4 py-10">
-      <h2 className="text-4xl font-bold mb-8 text-center">My Projects</h2>
+      <h2 className="text-5xl md:text-6xl font-extrabold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-indigo-600 to-purple-500 drop-shadow-lg">
+        My Projects
+      </h2>
+      <div className="w-24 h-1 mx-auto bg-gradient-to-r from-indigo-500 via-indigo-600 to-purple-500 rounded-full mb-12"></div>
       {projectList.map((project, idx) => (
         <ProjectCard key={idx} {...project} />
       ))}
