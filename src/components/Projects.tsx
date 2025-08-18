@@ -128,7 +128,7 @@ const Projects = () => {
         { name: "TypeScript", logo: tsLogo },
         { name: "Firebase", logo: firebaseLogo },
       ],
-      videoLink: "video/csduck-demo.mp4",
+      videoLink: "https://portfolio-static-fkles.s3.ap-southeast-1.amazonaws.com/csduck-demo.mp4",
     },
     {
       projectTitle: "Event-Driven Microservices Demo",
@@ -138,7 +138,7 @@ const Projects = () => {
         { name: "Kafka", logo: kafkaLogo },
         { name: "Spring Boot", logo: springLogo },
       ],
-      videoLink: "video/peerprep-demo.mp4"
+      videoLink: "https://portfolio-static-fkles.s3.ap-southeast-1.amazonaws.com/peerprep-demo.mp4"
     },
   ];
 
