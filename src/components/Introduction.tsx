@@ -13,6 +13,7 @@ const Introduction = () => {
   const scope = useRef<any>(null);
 
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  console.log("Application started");
   useEffect(() => {
     scope.current = createScope({ root }).add(() => {
       // Animate heading letters
