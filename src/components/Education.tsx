@@ -65,7 +65,7 @@ const Education = () => {
               }}
               contentArrowStyle={{ borderRight: "7px solid #ffffff" }}
               date={edu.duration}
-              iconStyle={{ background: "#4f46e5", color: "#fff", boxShadow: "0 4px 12px rgba(0,0,0,0.2)" }}
+              iconStyle={{ background: index === 0 ? "#10b981" : "#4f46e5", color: "#fff", boxShadow: "0 4px 12px rgba(0,0,0,0.2)" }}
               icon={<GraduationCap size={24} />}
             >
               <Typography variant="h6" fontWeight={700} mb={0.5} color="primary">

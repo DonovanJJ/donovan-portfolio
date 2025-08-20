@@ -86,7 +86,7 @@ const Experiences = () => {
               date={exp.duration}
               position={index % 2 === 0 ? 'left' : 'right'}
               iconStyle={{
-                background: exp.role === experiences[0].role || exp.role === experiences[2].role ? '#10b981' : '#6366f1',
+                background: exp.role === experiences[0].role || exp.role === experiences[3].role ? '#10b981' : '#6366f1',
                 color: '#fff',
               }}
               icon={<Briefcase size={20} />}

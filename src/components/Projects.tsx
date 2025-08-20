@@ -2,7 +2,6 @@ import { useState } from "react";
 import ReactPlayer from 'react-player'
 import { Link } from "react-router-dom";
 
-import kafkaLogo from "/images/kafka.svg";
 import springLogo from "/images/spring.svg";
 import reactLogo from "/images/react.svg";
 import expressLogo from "/images/express.svg";
@@ -12,25 +11,27 @@ import espidfLogo from "/images/espidf.svg";
 import telegramLogo from "/images/telegram.svg";
 import awsLogo from "/images/aws.svg";
 import espDashboardDemoImage from "/images/demo/esp-dashboard-demo.png";
+import rabbitMQLogo from "/images/rabbitMQ.svg";
+import websocketLogo from "/images/websocket.svg";
+import pythonLogo from "/images/python.svg";
+import mongodbLogo from "/images/mongodb.svg";
 
 type ProjectCardDetails = {
   projectTitle: string;
+  projectName: string;
   techStack: { name: string; logo: string }[];
   description: string;
   image?: string;
   videoLink?: string;
 };
 
-const ProjectCard = ({ projectTitle, techStack, description, image, videoLink }: ProjectCardDetails) => {
+const ProjectCard = ({ projectTitle, projectName, techStack, description, image, videoLink }: ProjectCardDetails) => {
   const [isOpen, setIsOpen] = useState(false);
-  console.log(videoLink);
-  const projectId = 'Test'
   return (
     <>
-      <Link to={`/projects/${projectId}`} className="w-full">
-      <div className="flex flex-col md:flex-row border rounded-2xl p-6 w-full max-w-4xl my-6 bg-white shadow-md hover:shadow-xl transition-transform transform hover:scale-105 hover:bg-blue-50">
+      <div id={projectName} className="flex flex-col md:flex-row border rounded-2xl p-6 w-full max-w-4xl my-6 bg-white shadow-md hover:shadow-xl transition-transform transform hover:scale-105 hover:bg-blue-50">
+        <Link to={`/donovan-portfolio/projects/${projectName}/#page-title`} className="md:w-1/2 w-full flex flex-col justify-center space-y-4 text-left mr-2">
         {/* Left side: Text content */}
-        <div className="md:w-1/2 w-full flex flex-col justify-center space-y-4 text-left mr-2">
           <h3 className="text-2xl font-bold">{projectTitle}</h3>
 
           <div className="flex flex-wrap items-center gap-3">
@@ -46,7 +47,7 @@ const ProjectCard = ({ projectTitle, techStack, description, image, videoLink }:
           </div>
 
           <p className="text-gray-700">{description}</p>
-        </div>
+        </Link>
 
         {/* Right side: Image / visual */}
         {image && (
@@ -75,7 +76,6 @@ const ProjectCard = ({ projectTitle, techStack, description, image, videoLink }:
           </div>
         )}
       </div>
-      </Link>
 
       {/* Modal */}
       {isOpen && (
@@ -103,39 +103,47 @@ const Projects = () => {
   const projectList = [
     {
       projectTitle: "IoT Temperature Monitoring System",
+      projectName: "iot-temp-monitor",
       description:
-        "Developed firmware using the ESP-IDF framework to publish real-time temperature and humidity data to AWS IoT. Built a full-stack web application to ingest, visualize, and monitor sensor data in real-time.",
+        "Real-time temperature & humidity monitoring with IoT sensors and a dynamic web dashboard.",
       techStack: [
-        { name: "ESP-IDF", logo: espidfLogo },
         { name: "AWS IoT", logo: awsLogo },
+        { name: "ESP-IDF", logo: espidfLogo },
         { name: "React.js", logo: reactLogo },
       ],
       image: espDashboardDemoImage,
     },
     {
-      projectTitle: "Event-Driven Microservices Demo",
+      projectTitle: "Real-Time Code Collaborative Platform",
+      projectName: "coding-collaboration-platform",
       description:
-        "Designed an architecture demo showcasing asynchronous communication between microservices using Kafka and Spring Boot. Built producers and consumers to simulate real-world event flows and demonstrate scalability and fault-tolerance.",
+        "A web-based editor where users can solve coding challenges together in real-time, with live updates and collaborative problem-solving features.",
       techStack: [
-        { name: "Kafka", logo: kafkaLogo },
         { name: "Spring Boot", logo: springLogo },
+        { name: "RabbitMQ", logo: rabbitMQLogo },
+        { name: "ExpressJs", logo: expressLogo },
+        { name: "Websocket", logo: websocketLogo },
       ],
-      videoLink: "https://portfolio-static-fkles.s3.ap-southeast-1.amazonaws.com/peerprep-demo.mp4"
+      videoLink: "https://portfolio-static-fkles.s3.ap-southeast-1.amazonaws.com/peerprep-demo.mp4",
     },
     {
       projectTitle: "Household Chores Telegram Bot",
+      projectName: "household-chore-telebot",
       description:
-        "Created a Telegram bot to help households distribute chores fairly. Engineered a RESTful API using Express.js for efficient resource management and integrated real-time task assignments with notifications.",
+        "A Telegram bot that helps households distribute chores fairly with real-time notifications.",
       techStack: [
+        { name: "Python", logo: pythonLogo },
         { name: "Express.js", logo: expressLogo },
         { name: "Telegram API", logo: telegramLogo },
+        { name: "Telegram API", logo: mongodbLogo },
       ],
       videoLink: "https://portfolio-static-fkles.s3.ap-southeast-1.amazonaws.com/householdchore-demo.mp4",
     },
     {
       projectTitle: "Productivity Planner Web App (NUS Orbital, Apollo 11)",
+      projectName: "productivity-planner",
       description:
-        "Co-built a full-stack planner that provides task prioritization recommendations. Implemented topological sorting in TypeScript for task scheduling and integrated Firebase Authentication for secure access. Wrote comprehensive Jest test cases to ensure quality and reliability.",
+        "Full-stack planner with smart task prioritization and secure login, built with React and Firebase.",
       techStack: [
         { name: "React.js", logo: reactLogo },
         { name: "TypeScript", logo: tsLogo },
