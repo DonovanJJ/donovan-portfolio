@@ -13,7 +13,6 @@ const Introduction = () => {
   const scope = useRef<any>(null);
 
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  console.log("Application started");
   useEffect(() => {
     scope.current = createScope({ root }).add(() => {
       // Animate heading letters
@@ -48,6 +47,17 @@ const Introduction = () => {
         direction: 'alternate',
       });
 
+      animate(root.current!.querySelector('#social-buttons')!, {
+        opacity: [0, 1],
+        translateY: [-5, 0],
+        scale: [1, 1.2],
+        easing: 'easeOutExpo',
+        duration: 1500,
+        delay: 1500,
+        loop: false,
+        direction: 'alternate',
+      });
+
       const image = root.current!.querySelector('img')!;
       animate(image, {
         opacity: [0, 1],
@@ -79,7 +89,7 @@ const Introduction = () => {
           I'm a Computer Science student at the National University of Singapore with a strong interest in software engineering. I enjoy working on projects that spark curiosity and are simply fun to build.
         </p>
 
-        <div className="flex space-x-4 mt-4">
+        <div id="social-buttons" className="flex space-x-4 mt-4">
           <IconButton
             color="primary"
             component="a"
