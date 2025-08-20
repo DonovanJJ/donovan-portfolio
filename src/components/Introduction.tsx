@@ -89,41 +89,42 @@ const Introduction = () => {
           I'm a Computer Science student at the National University of Singapore with a strong interest in software engineering. I enjoy working on projects that spark curiosity and are simply fun to build.
         </p>
 
-        <div id="social-buttons" className="flex space-x-4 mt-4">
-          <IconButton
-            color="primary"
-            component="a"
-            href="https://www.linkedin.com/in/chanjiajun"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <LinkedInIcon fontSize="large" />
-          </IconButton>
+        <div className="flex flex-col items-center md:items-start space-y-4 mt-4">
+          <div id="social-buttons" className="flex space-x-4">
+            <IconButton
+              color="primary"
+              component="a"
+              href="https://www.linkedin.com/in/chanjiajun"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon fontSize="large" />
+            </IconButton>
 
-          <IconButton
-            color="success"
-            component="a"
-            href="https://wa.me/81867762"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <WhatsAppIcon fontSize="large" />
-          </IconButton>
+            <IconButton
+              color="success"
+              component="a"
+              href="https://wa.me/81867762"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <WhatsAppIcon fontSize="large" />
+            </IconButton>
 
-          <IconButton
-            color="error"
-            onClick={copyEmailToClipboard}
-          >
-            <EmailIcon fontSize="large" />
-          </IconButton>
-          <Snackbar
-            open={openSnackbar}
-            autoHideDuration={3000}
-            onClose={() => setOpenSnackbar(false)}
-            message="Email copied to clipboard!"
-          />
+            <IconButton
+              color="error"
+              onClick={copyEmailToClipboard}
+            >
+              <EmailIcon fontSize="large" />
+            </IconButton>
+            <Snackbar
+              open={openSnackbar}
+              autoHideDuration={3000}
+              onClose={() => setOpenSnackbar(false)}
+              message="Email copied to clipboard!"
+            />
+          </div>
         </div>
-
 
         {/* Scroll Button */}
         <a
