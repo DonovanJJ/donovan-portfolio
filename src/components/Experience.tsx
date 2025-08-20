@@ -11,8 +11,19 @@ type Experience = {
 const experiences: Experience[] = [
   {
     company: "Dyson Pte Ltd",
-    role: "Cloud Engineer Intern",
-    duration: "Jan 2025 – Present",
+    role: "Cloud Engineer Intern (Part-time)",
+    duration: "Aug 2025 – Present",
+    description: [
+      "Developed cloud-native .NET C# data pipelines to automate ingestion of 10,000+ daily log events.",
+      "Built a Retrieval-Augmented Generation (RAG) proof of concept with speech-to-text and text-to-speech capabilities.",
+      "Delivered React.js dashboards providing actionable insights on customer product usage within 1 week.",
+      "Enhanced service reliability with unit and integration tests, boosting code coverage and deployment robustness.",
+    ],
+  },
+  {
+    company: "Dyson Pte Ltd",
+    role: "Cloud Engineer Intern (Full-time)",
+    duration: "Jan 2025 – Aug 2025",
     description: [
       "Developed cloud-native .NET C# data pipelines to automate ingestion of 10,000+ daily log events.",
       "Built a Retrieval-Augmented Generation (RAG) proof of concept with speech-to-text and text-to-speech capabilities.",

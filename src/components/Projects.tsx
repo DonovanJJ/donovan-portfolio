@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ReactPlayer from 'react-player'
+import { Link } from "react-router-dom";
 
 import kafkaLogo from "/images/kafka.svg";
 import springLogo from "/images/spring.svg";
@@ -23,10 +24,11 @@ type ProjectCardDetails = {
 const ProjectCard = ({ projectTitle, techStack, description, image, videoLink }: ProjectCardDetails) => {
   const [isOpen, setIsOpen] = useState(false);
   console.log(videoLink);
-
+  const projectId = 'Test'
   return (
     <>
-      <div className="flex flex-col md:flex-row border rounded-2xl p-6 w-full max-w-4xl my-6 bg-white shadow-md hover:shadow-xl transition-transform transform hover:scale-105">
+      <Link to={`/projects/${projectId}`} className="w-full">
+      <div className="flex flex-col md:flex-row border rounded-2xl p-6 w-full max-w-4xl my-6 bg-white shadow-md hover:shadow-xl transition-transform transform hover:scale-105 hover:bg-blue-50">
         {/* Left side: Text content */}
         <div className="md:w-1/2 w-full flex flex-col justify-center space-y-4 text-left mr-2">
           <h3 className="text-2xl font-bold">{projectTitle}</h3>
@@ -73,6 +75,7 @@ const ProjectCard = ({ projectTitle, techStack, description, image, videoLink }:
           </div>
         )}
       </div>
+      </Link>
 
       {/* Modal */}
       {isOpen && (
@@ -110,6 +113,16 @@ const Projects = () => {
       image: espDashboardDemoImage,
     },
     {
+      projectTitle: "Event-Driven Microservices Demo",
+      description:
+        "Designed an architecture demo showcasing asynchronous communication between microservices using Kafka and Spring Boot. Built producers and consumers to simulate real-world event flows and demonstrate scalability and fault-tolerance.",
+      techStack: [
+        { name: "Kafka", logo: kafkaLogo },
+        { name: "Spring Boot", logo: springLogo },
+      ],
+      videoLink: "https://portfolio-static-fkles.s3.ap-southeast-1.amazonaws.com/peerprep-demo.mp4"
+    },
+    {
       projectTitle: "Household Chores Telegram Bot",
       description:
         "Created a Telegram bot to help households distribute chores fairly. Engineered a RESTful API using Express.js for efficient resource management and integrated real-time task assignments with notifications.",
@@ -129,16 +142,6 @@ const Projects = () => {
         { name: "Firebase", logo: firebaseLogo },
       ],
       videoLink: "https://portfolio-static-fkles.s3.ap-southeast-1.amazonaws.com/csduck-demo.mp4",
-    },
-    {
-      projectTitle: "Event-Driven Microservices Demo",
-      description:
-        "Designed an architecture demo showcasing asynchronous communication between microservices using Kafka and Spring Boot. Built producers and consumers to simulate real-world event flows and demonstrate scalability and fault-tolerance.",
-      techStack: [
-        { name: "Kafka", logo: kafkaLogo },
-        { name: "Spring Boot", logo: springLogo },
-      ],
-      videoLink: "https://portfolio-static-fkles.s3.ap-southeast-1.amazonaws.com/peerprep-demo.mp4"
     },
   ];
 
