@@ -117,7 +117,7 @@ const Projects = () => {
         { name: "Express.js", logo: expressLogo },
         { name: "Telegram API", logo: telegramLogo },
       ],
-      image: telegramLogo,
+      videoLink: "https://portfolio-static-fkles.s3.ap-southeast-1.amazonaws.com/householdchore-demo.mp4",
     },
     {
       projectTitle: "Productivity Planner Web App (NUS Orbital, Apollo 11)",
